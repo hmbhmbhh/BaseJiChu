@@ -1,4 +1,4 @@
-package javeSE;
+package javeSE.basics;
 
 /**
  * @Classname ThreadTwo

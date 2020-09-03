@@ -1,4 +1,4 @@
-package javeSE;
+package javeSE.basics;
 
 import java.util.ArrayList;
 import java.util.Collection;
