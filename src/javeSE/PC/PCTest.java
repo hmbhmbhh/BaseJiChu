@@ -9,11 +9,12 @@ package javeSE.PC;
 public class PCTest {
     public static void main(String[] args) {
         Goods goods = new Goods();
-        Consumer consumer = new Consumer(goods);
         Producer producer = new Producer(goods);
-        Thread thread = new Thread(consumer);
+        Consumer consumer = new Consumer(goods);
         Thread thread1 = new Thread(producer);
-        thread.start();
+        Thread thread = new Thread(consumer);
         thread1.start();
+        thread.start();
+
     }
 }

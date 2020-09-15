@@ -44,7 +44,7 @@ public class Goods {
         /** 如果true,证明有产品需要去先消费，此时等待这个共享对象，不往下执行
          * 因为cpu资源是公平竞争，所以需要这个变量来控制方法执行
          * */
-        if (!flag) {
+        if (flag) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -59,7 +59,7 @@ public class Goods {
         this.setBrand(brand);
         this.setName(name);
         System.out.println("生产者生产了" + this.getBrand() + "----" + this.getName());
-        /** 此时生产完需要将产品的状态改为false */
+        /** 此时生产完需要将产品的状态改为true */
         flag = true;
         /** 用来唤醒当前资源继续执行 */
         notify();
@@ -67,8 +67,8 @@ public class Goods {
 
     /** 消费者方法 */
     public synchronized void get() {
-        /** 当消费者抢占到CPU资源先判断是否有产品，如果没有，false,等待生产者方法生产 */
-        if (flag) {
+        /** 当消费者抢占到CPU资源先判断是否有产品，如果true,先去消费 */
+        if (!flag) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -82,6 +82,7 @@ public class Goods {
         }
         System.out.println("消费者取走了" + this.getBrand() + "---------" + this.getName());
         flag = false;
+
         notify();
     }
 }
