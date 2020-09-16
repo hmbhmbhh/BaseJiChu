@@ -46,6 +46,7 @@ public class Goods {
          * */
         if (flag) {
             try {
+                /** main方法等待，wait方法是指当前主线程进行等待且释放锁，生产者去执行生产产品 */
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -61,7 +62,7 @@ public class Goods {
         System.out.println("生产者生产了" + this.getBrand() + "----" + this.getName());
         /** 此时生产完需要将产品的状态改为true */
         flag = true;
-        /** 用来唤醒当前资源继续执行 */
+        /** 用来唤醒main主线程继续执行 */
         notify();
     }
 
