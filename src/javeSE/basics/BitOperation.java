@@ -12,5 +12,7 @@ public class BitOperation {
         System.out.println(12 >> 1);
         //12/2的2次方=12/4
         System.out.println(12 >> 2);
+        //12*2的一次方
+        System.out.println(12 << 1);
     }
 }

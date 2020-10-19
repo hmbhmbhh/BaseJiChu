@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @Classname StringTest
- * @Description TODO
+ * @Description TODO 对于任何两个字符串s和t ， s.intern() == t.intern()是true当且仅当s.equals(t)是true
  * @Date 2020/8/28 10:28
  * @Created by hmb.java.boy
  */
@@ -21,7 +21,7 @@ public class StringTest {
         String a1 = "b";
         String a2 = "c";
         String a3 = "abc";
-        String a6 = a1 + a2 + a3;
+        String a6 = a + a1 + a2;
         String a7 = (a + a1 + a2).intern();
 
         System.out.println(a3 == a6);
